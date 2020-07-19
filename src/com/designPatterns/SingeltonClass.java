@@ -21,8 +21,13 @@ public class SingeltonClass implements Serializable {
         return instance;
     }
 /* For serialization and deserialization*/
-    public Object readResolve(){
+    protected Object readResolve(){
         return instance;
+    }
+
+    @Override
+    protected Object clone(){
+        return new CloneNotSupportedException();
     }
 }
 
